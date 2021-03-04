@@ -35,10 +35,16 @@ public class BankAccount {
         return accountHolder;
     }
 
-    public void withdraw(long amount){
-        balance-=amount;
+    public void withdraw(long amount) throws InsuficientFundsException {
+        if(amount>this.balance)
+        {
+            throw new InsuficientFundsException("Not enough funds");
+        }
+        System.out.println("Withdrawing "+amount +" from "+ this.iban);
+        this.balance-=amount;
     }
     public void deposit(long amount){
+        System.out.println("Deposit "+amount +" to "+ this.iban);
         balance+=amount;
     }
 

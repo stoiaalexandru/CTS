@@ -1,6 +1,8 @@
 package ro.ase.csie.cts.seminar2;
 
 import ro.ase.csie.cts.seminar2.solid.BankAccount;
+import ro.ase.csie.cts.seminar2.solid.FeeBankAccount;
+import ro.ase.csie.cts.seminar2.solid.InsuficientFundsException;
 import ro.ase.csie.cts.seminar2.solid.Person;
 
 public class Main {
@@ -17,7 +19,26 @@ public class Main {
 //        }
         Person person= new Person("Andrei");
         BankAccount account=new BankAccount("INGB33445532", person);
+        account.deposit(100);
+        try {
+            account.withdraw(30);
+            account.withdraw(70);
+        } catch (InsuficientFundsException e) {
+            System.out.println(e.getMessage());
+        }
 
-        System.out.println(account);
+
+        System.out.println(account.getBalance());
+
+        FeeBankAccount fb= new FeeBankAccount("INGB123012340",person);
+        fb.deposit(200);
+        try {
+            fb.withdraw(20);
+        } catch (InsuficientFundsException e) {
+            System.out.println(e.getMessage());
+        }
+
+        System.out.println(fb.getBalance());
+
     }
 }
