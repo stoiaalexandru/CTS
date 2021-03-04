@@ -1,8 +1,11 @@
 package ro.ase.csie.cts.seminar2;
 
+import java.text.DateFormatSymbols;
+import java.util.Locale;
+
 public class CalendarUtil {
 
-    public String weekDay(int day) {
+    public String weekDay(int day) throws IncorrectDayException  {
         if (day == 1)
             return "Sunday";
         else if (day == 2)
@@ -17,11 +20,11 @@ public class CalendarUtil {
             return "Friday";
         else if (day == 7)
             return "Saturday";
+         throw new IncorrectDayException("Only 7 days in a week");
 
-        return null;
     }
 
-    public String weekDay2(int day) {
+    public String weekDay2(int day) throws IncorrectDayException {
         switch (day) {
             case 1:
                 return "Sunday";
@@ -38,12 +41,23 @@ public class CalendarUtil {
             case 7:
                 return "Saturday";
             default:
-                return null;
+                throw new IncorrectDayException("Only 7 days in a week");
         }
     }
 
-    public String weekDay3(int day) {
+    public String weekDay3(int day) throws IncorrectDayException {
+        if(day<1 || day>7){
+            throw new IncorrectDayException("Only 7 days in a week");
+        }
         String[] weekDays = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
         return weekDays[day - 1];
+    }
+
+    public String weekDay4(int day) throws IncorrectDayException{
+        if(day<1 || day>7){
+            throw new IncorrectDayException("Only 7 days in a week");
+        }
+        String[] days = DateFormatSymbols.getInstance(Locale.ITALY).getWeekdays();
+        return days[day];
     }
 }
