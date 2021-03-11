@@ -7,17 +7,9 @@ public abstract class ReceivableBankAccount implements Recievable{
 
     protected Person accountHolder;
 
-    public ReceivableBankAccount( String iban, Person accountHolder,long balance) {
+    protected NotificationService notificationService;
 
-        this.iban = iban;
-        this.accountHolder = accountHolder;
-    }
 
-    public ReceivableBankAccount(String iban, Person accountHolder) {
-        this.iban = iban;
-        this.accountHolder = accountHolder;
-        this.balance = 0;
-    }
 
     public long getBalance() {
         return balance;

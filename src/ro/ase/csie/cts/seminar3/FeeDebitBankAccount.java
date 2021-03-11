@@ -4,13 +4,13 @@ public class FeeDebitBankAccount extends DebitBankAccount {
 
     private long fee=2;
 
-    public FeeDebitBankAccount(String iban, Person accountHolder) {
-        super(iban, accountHolder);
+    public FeeDebitBankAccount(String iban, Person accountHolder,NotificationService notificationService) {
+        super(iban, accountHolder,notificationService);
     }
 
     @Override
     public void withdraw(long amount) throws InsuficientFundsException {
-        System.out.println("Adding "+fee+" fee to withdrawal!");
+        notificationService.sendNotification(accountHolder,"Adding "+fee+" fee to withdrawal!");
         super.withdraw(amount+fee);
     }
 }

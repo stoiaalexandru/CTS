@@ -10,14 +10,23 @@ public class Main {
 
         Map<Person, Recievable> employees = new HashMap<>();
 
+        NotificationService smsService=new SMSNotificationService();
+        NotificationService emailService=new EmailNotificationService();
+
         Person p1 = new Person("Chuck Norris");
-        CreditBankAccount b1 = new CreditBankAccount(-1000,"RFZ123123132", p1);
+        p1.setEmail("chuck@norris.com");
+        p1.setMobile("0742993322");
+        CreditBankAccount b1 = new CreditBankAccount("RFZ123123132",p1,-1000,emailService);
 
         Person p2 = new Person("Arnold");
-        FeeDebitBankAccount b2 = new FeeDebitBankAccount("INGB12312313",p2);
+        p2.setEmail("ar@nold.com");
+        p2.setMobile("0722993322");
+        FeeDebitBankAccount b2 = new FeeDebitBankAccount("INGB12312313",p2,smsService);
 
         Person p3 = new Person("Van Damme");
-        DebitBankAccount b3  = new DebitBankAccount("BT123123123",p3);
+        p3.setEmail("vann@damme.cocs");
+        p3.setMobile("0732993322");
+        DebitBankAccount b3  = new DebitBankAccount("BT123123123",p3,emailService);
 
         employees.put(p1,b1);
         employees.put(p2,b2);
