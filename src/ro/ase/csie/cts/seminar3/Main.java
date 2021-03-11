@@ -36,8 +36,16 @@ public class Main {
             try {
                 a.withdraw(10);
             } catch (InsuficientFundsException e) {
-                e.getMessage();
+                System.out.println(e.getMessage());
             }
+        }
+
+        System.out.println("\n\n");
+
+        try {
+            b2.transfer(b3,300);
+        } catch (InsuficientFundsException e) {
+            System.out.println(e.getMessage());
         }
     }
 
