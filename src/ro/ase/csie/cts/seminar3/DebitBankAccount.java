@@ -1,19 +1,19 @@
 package ro.ase.csie.cts.seminar3;
 
-public class BankAccount implements Account {
+public class DebitBankAccount implements Recievable, Payable {
 
     private String iban;
     private long balance;
 
     private Person accountHolder;
 
-    public BankAccount(String iban, Person accountHolder) {
+    public DebitBankAccount(String iban, Person accountHolder) {
         this.iban = iban;
         this.balance = 0;
         this.accountHolder = accountHolder;
     }
 
-    public BankAccount(String iban, long balance, Person accountHolder) {
+    public DebitBankAccount(String iban, long balance, Person accountHolder) {
         this.iban = iban;
         this.balance = balance;
         this.accountHolder = accountHolder;

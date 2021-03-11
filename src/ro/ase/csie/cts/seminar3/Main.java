@@ -1,39 +1,46 @@
 package ro.ase.csie.cts.seminar3;
 
+import ro.ase.csie.cts.seminar2.solid.FeeBankAccount;
+
 import java.util.HashMap;
 import java.util.Map;
 
 public class Main {
     public static void main(String[] args) {
 
-        Map<Person, Account> employees = new HashMap<>();
-        Person p1=new Person("Chuck Norris");
-        Account b1 = new BankAccount("RFZ123123123", p1);
+        Map<Person, Recievable> employees = new HashMap<>();
 
-        Person p2= new Person("Arnold");
-        Account b2=new FeeBankAccount("ING345345345",p2);
+        Person p1 = new Person("Chuck Norris");
+        CreditBankAccount b1 = new CreditBankAccount(-1000,"RFZ123123132", p1);
 
-        Person p3= new Person("Arnold");
-        Account b3=new BankAccount("ING345345345",p2);
+        Person p2 = new Person("Arnold");
+        FeeDebitBankAccount b2 = new FeeDebitBankAccount("INGB12312313",p2);
+
+        Person p3 = new Person("Van Damme");
+        DebitBankAccount b3  = new DebitBankAccount("BT123123123",p3);
 
         employees.put(p1,b1);
         employees.put(p2,b2);
         employees.put(p3,b3);
 
-        for(Account a: employees.values()){
+        for(Recievable a: employees.values()){
             a.deposit(1000);
         }
-        for(Account a: employees.values()){
 
+        Map<Person, Payable> union = new HashMap<>();
+
+        union.put(p2,b2);
+        union.put(p3,b3);
+
+        for(Payable a: union.values()){
             try {
-                a.withdraw(1000);
+                a.withdraw(10);
             } catch (InsuficientFundsException e) {
-                System.out.println(e.getMessage());
+                e.getMessage();
             }
         }
-
-
+    }
 
 
     }
-}
+
