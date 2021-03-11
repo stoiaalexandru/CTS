@@ -1,38 +1,13 @@
 package ro.ase.csie.cts.seminar3;
 
-public class DebitBankAccount implements Recievable, Payable {
-
-    private String iban;
-    private long balance;
-
-    private Person accountHolder;
+public class DebitBankAccount extends ReceivableBankAccount  implements Payable {
 
     public DebitBankAccount(String iban, Person accountHolder) {
-        this.iban = iban;
-        this.balance = 0;
-        this.accountHolder = accountHolder;
+        super(iban,accountHolder);
     }
 
     public DebitBankAccount(String iban, long balance, Person accountHolder) {
-        this.iban = iban;
-        this.balance = balance;
-        this.accountHolder = accountHolder;
-    }
-
-    public String getIban() {
-        return iban;
-    }
-
-    public long getBalance() {
-        return balance;
-    }
-
-    public void setBalance(long balance) {
-        this.balance = balance;
-    }
-
-    public Person getAccountHolder() {
-        return accountHolder;
+        super(iban,accountHolder,balance);
     }
 
     @Override
