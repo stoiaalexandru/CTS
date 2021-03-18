@@ -7,6 +7,7 @@ public class Person {
     private String name;
     private String address;
     private Date birthday;
+    private int age;
     private long salary;
     private String email;
     private String mobile;
@@ -34,8 +35,9 @@ public class Person {
         this.birthday = birthday;
         this.salary = salary;
     }
-    public Person(String name) {
+    public Person(String name, int age) {
         this.name = name;
+        this.age = age;
     }
 
     public String getName() {
@@ -77,6 +79,14 @@ public class Person {
     }
     public String getMobile() {
         return mobile;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
     }
 
     public void setMobile(String mobile) {
