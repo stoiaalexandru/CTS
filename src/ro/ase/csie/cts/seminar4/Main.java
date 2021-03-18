@@ -5,6 +5,7 @@ package ro.ase.csie.cts.seminar4;
 
 import ro.ase.csie.cts.seminar2.solid.BankAccount;
 import ro.ase.csie.cts.seminar4.banking.*;
+import ro.ase.csie.cts.seminar4.singleton.Elvis;
 
 public class Main {
     public static void main(String[] args) {
@@ -20,5 +21,7 @@ public class Main {
         CreditBankAccount b1 = CreditBankAccount.createCreditBankAccount( emailService,"RFZ23154123",p3);
 
         b.deposit(50);
+
+        Elvis.theTrueElvis.sing();
     }
 }
