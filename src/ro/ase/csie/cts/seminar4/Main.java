@@ -3,9 +3,9 @@ package ro.ase.csie.cts.seminar4;
 
 
 
-import ro.ase.csie.cts.seminar2.solid.BankAccount;
 import ro.ase.csie.cts.seminar4.banking.*;
 import ro.ase.csie.cts.seminar4.singleton.Elvis;
+import ro.ase.csie.cts.seminar4.singleton.ElvisV2;
 
 public class Main {
     public static void main(String[] args) {
@@ -22,6 +22,8 @@ public class Main {
 
         b.deposit(50);
 
-        Elvis.theTrueElvis.sing();
+        Elvis.getInstance().sing();
+        ElvisV2 elvisV2=ElvisV2.INSTANCE;
+        elvisV2.sing();
     }
 }
