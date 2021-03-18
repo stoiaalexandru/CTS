@@ -4,22 +4,19 @@ public class CreditBankAccount extends ReceivableBankAccount {
 
 
 
-    public CreditBankAccount(String iban, Person accountHolder, long balance, NotificationService notificationService) {
+    public CreditBankAccount(NotificationService notificationService, String iban, Person accountHolder, long balance) {
         this.notificationService=notificationService;
         this.balance=balance;
         this.iban = iban;
         this.accountHolder = accountHolder;
     }
 
-    public CreditBankAccount(String iban, Person accountHolder, NotificationService notificationService) {
-        this.notificationService=notificationService;
-        this.iban = iban;
-        this.accountHolder = accountHolder;
-        this.balance = 0;
+    public static CreditBankAccount createCreditBankAccountWithBalance(NotificationService notificationService, String iban, Person accountHolder, long balance){
+        return new CreditBankAccount(notificationService,iban,accountHolder,balance);
     }
 
-    public static CreditBankAccount createCreditBankAccount(NotificationService notificationService, String iban, Person accountHolder, long balance){
-        return new CreditBankAccount(iban,accountHolder,balance,notificationService);
+    public static CreditBankAccount createCreditBankAccount(NotificationService notificationService, String iban, Person accountHolder){
+        return new CreditBankAccount(notificationService,iban,accountHolder,0);
     }
 
 
