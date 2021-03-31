@@ -19,6 +19,6 @@ utilizarea oricarei teme fara a modifica major functionalitatea
 dar si fara a permite programatorilor sa omita unele dintre ele
 
 
-#4.- in joc pot aparea mai multe instante ale aceluiasi caracter
+#4.In joc pot aparea mai multe instante ale aceluiasi caracter
 - crearea modelului 3D este un proces costisitor deoarece presupune incarcarea si generarea modelului
 - trebuie gasita o solutie eficienta pentru a crea mai multe instante ale aceluiasi caracter
