@@ -7,10 +7,10 @@
 - clientul trebuie sa foloseasca un unic obiect care sa ii permita conexiunea la baza de date
 
 #2. Crearea de diferite tipuri de caractere din joc
-- in prezent exista 3 tipuri de caractere 	POZITIV, NEGATIV si ALTE_TIPURI
+- in prezent exista 3 tipuri de caractere DISNEY, DC si MARVEL
 - jocul fiind in dezvoltare exista riscul ca in viitor sa apara tipuri noi sau cele existente se vor modifica
-- jocul permite alegerea unei teme care influenteaza colectia de personaje; trebuie utilizata o metoda eficienta care sa pemita jocului
-utilizarea oricarei teme fara a modifica major functionalitatea
+- jocul permite alegerea unei teme care influenteaza colectia de personaje; trebuie utilizata o metoda eficienta care sa pemita jocului utilizarea oricarei teme fara a modifica major functionalitatea
+
 
 #3. Instantierea supereroului asociat jucatorului
 - acesta are multe atribute pentru a permite particularizarea sa
