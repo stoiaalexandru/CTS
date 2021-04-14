@@ -9,6 +9,11 @@ public class DonaldDuck implements ActiuniDisney{
         this.power = power;
     }
 
+    @Override
+    public String getNume() {
+        return denumire;
+    }
+    @Override
     public int getPower() {
         return power;
     }
