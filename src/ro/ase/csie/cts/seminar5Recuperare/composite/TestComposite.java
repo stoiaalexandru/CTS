@@ -1,4 +1,4 @@
-package ro.ase.csie.cts.seminar9.composite;
+package ro.ase.csie.cts.seminar5Recuperare.composite;
 
 public class TestComposite {
     public static void main(String[] args) {
