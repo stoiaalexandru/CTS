@@ -29,7 +29,7 @@ public class Model3DCaracter implements Cloneable {
     }
 
     @Override
-    public Object clone() throws CloneNotSupportedException {
+    protected Object clone() throws CloneNotSupportedException {
         Model3DCaracter copie = new Model3DCaracter();
         copie.culoare = this.culoare;
         copie.inaltime= this.inaltime;
