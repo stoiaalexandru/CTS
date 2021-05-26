@@ -1,6 +1,7 @@
 package ro.ase.csie.cts.seminar13.testare.teste;
 
 import org.junit.*;
+import ro.ase.csie.cts.seminar13.testare.exceptii.ExceptieNote;
 import ro.ase.csie.cts.seminar13.testare.exceptii.ExceptieNume;
 import ro.ase.csie.cts.seminar13.testare.exceptii.ExceptieVarsta;
 import ro.ase.csie.cts.seminar13.testare.modele.Student;
@@ -10,6 +11,8 @@ import java.util.ArrayList;
 import static org.junit.Assert.*;
 
 public class StudentTest {
+
+    //Test Fixture
 
     public static Student student;
     public static ArrayList<Integer> note = new ArrayList<>();
@@ -81,5 +84,47 @@ public class StudentTest {
     public void testSetVarstaErrorConditionsMari() throws ExceptieVarsta {
         int varstaNoua = Student.MAX_VARSTA + 100;
         student.setVarsta(varstaNoua);
+    }
+
+    @Test
+    public void testGetNotaMinimaOrderingSortateCrescator() throws ExceptieNote {
+        int notaMinima=4;
+        ArrayList<Integer> noteSortate = new ArrayList<>();
+        for(int i =0 ; i<5;i++){
+            noteSortate.add(notaMinima+i);
+        }
+        student.setNote(noteSortate);
+
+        int notaDeterminata = student.getNotaMinima();
+        assertEquals("Test cu note sortate crescator",notaMinima,notaDeterminata);
+    }
+
+    @Test
+    public void testGetNotaMinimaCardinalityZero() throws ExceptieNote {
+        ArrayList<Integer> note = new ArrayList<>();
+        student.setNote(note);
+
+        int notaMinima=0;
+        int notaMinimaCalculata=student.getNotaMinima();
+        assertEquals("Test fara note",notaMinima,notaMinimaCalculata);
+    }
+
+    @Test
+    public void testGetNotaMinimaCardinalityUnu() throws ExceptieNote {
+        ArrayList<Integer> note = new ArrayList<>();
+        note.add(Student.MAX_NOTA);
+        student.setNote(note);
+
+        int notaMinima=Student.MAX_NOTA;
+        int notaMinimaCalculata=student.getNotaMinima();
+        assertEquals("Test cu o singura nota",notaMinima,notaMinimaCalculata);
+    }
+
+    @Test
+    public void testGetNotaMinimaExistenceReferintaNull() throws ExceptieNote {
+        student.setNote(null);
+        int notaMinima=0;
+        int notaMinimaCalculata = student.getNotaMinima();
+        assertEquals("Test cu referinta null pentru note", notaMinima, notaMinimaCalculata);
     }
 }
