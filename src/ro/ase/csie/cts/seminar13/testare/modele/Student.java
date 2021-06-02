@@ -54,7 +54,7 @@ public class Student {
 
 
 	public void setNote(ArrayList<Integer> note) throws ExceptieNote {
-		this.note = note;
+		this.note = (ArrayList<Integer>) note.clone();
 	}
 	
 	
@@ -65,10 +65,10 @@ public class Student {
 	public int getNrNote() {
 		return this.note.size();
 	}
-	
+
 
 	public float getMedie() {
-		int sum = 0;
+		float sum = 0;
 		for(int grade : this.note) {
 			sum += grade;
 		}
